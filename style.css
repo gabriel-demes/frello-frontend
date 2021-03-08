@@ -1,0 +1,98 @@
+
+main {
+    margin:1;
+    display: grid;
+    /*grid-template-areas:"nav content";*/
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 125px 1fr;
+    height: 100vh;
+  }
+aside{
+    border-style: solid;
+    border-width:1px;
+    border-color: black;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1; 
+    grid-row-end: 4;
+}
+
+div#user-info{
+    padding: 1rem;
+    
+}
+div#org-info{
+    border-style: solid;
+    border-width:1px;
+    border-color: black;
+    grid-column-start: 2;
+    grid-row-start: 1; 
+}
+div#content-container{
+    border-style: solid;
+    border-width:1px;
+    border-color: black;
+    grid-column-start: 2;
+    grid-row-start: 2; 
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+}
+
+div.list{
+    flex-basis: 20rem;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+div.list div{
+    margin: auto;
+    width: 85%;
+    height: 90%;
+    border: 1px solid black;
+    margin-top: 1rem;
+    overflow-y: scroll ;
+}
+
+div#user-info{
+    border: 1px solid black;
+    margin: 2rem;
+}
+
+div#personal-tasks{
+    text-align: center;
+}
+
+div#my-organizations{
+    text-align: center;
+    margin: 2rem;
+}
+
+div#my-organizations ul{
+    text-align:center;
+    list-style-type: none;
+}
+
+div.list ul{
+    list-style-type: none;
+    text-align: start;
+}
+
+div.list ul li{
+    border: 1px solid black;
+    margin-left: 0;
+    margin-bottom: 1rem;
+    width: 85%;
+
+}
+
+div#task-card{
+    position: fixed;
+    z-index: 1;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    background-color: gray;
+    padding:1rem;
+}
