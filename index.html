@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css"> 
+    <script src="index.js" defer></script>
 </head>
 <body>
     <main>
         <aside>
             <div id="user-info">
-                <p>Name: Example</p>
-                <p>Username: Example</p>
+                <p id="name">Name: Example</p>
+                <p id= "username">Username: Example</p>
                 <p>button will go here</p>
             </div>
             <div id="personal-tasks">
@@ -21,41 +22,35 @@
             <div id="my-organizations">
                 <h3>My Organizations</h3>
                 <ul>
-                    <li><h4>list starts here</h4></li>
                 </ul>
             </div>
-        </aside>
-        <div id="org-info">
-            
-        </div>
-        <div id="content-container">
-            <div class="list" id="1">
-                <div>
-                    <h3>LIST_NAME</h3>
-                    <ul>
-                        <li><h4>TASK 1</h4></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="list" id="2">
-                <div>
-                    <h3>list2</h3>
-                </div>
-            </div>
-            <div class="list" id="3">
-                <div>
-                    <h3>list3</h3>
-                </div>
+            <div id="aside-bttns">
+                <ul>
+                    <li><button id="join-org">Join Organization</button></li>
+                    <li><button id="new-org">Create Organization</button></li>
+                </ul>
             </div>
 
-            </div>
+        </aside>
+        <div id="org-info"> 
+        </div>
+        <div id="content-container">
         </div>
     </main>
-    <div id="task-card" style="display:none">
-        <h2>card title</h3>
-        <h3>Date Created</h5>
-        <h3>Date Due</p>
-        <p>Description</p>
+    <div class="hide" id="hide-task" data-action="close" style="display:none">
+        <div id="task-card" class="pop-up" >
+            <h2>card title</h2>
+            <h3 class="created">Date Created</h3>
+            <h3 class = "due">Date Due</h3>
+            <p>Description</p>
+        </div>
+    </div>
+    <div class="hide" id="hide-new-form" data-action="close" style="display:none">
+        <form class="pop-up" id="new-org-form">
+            <label for="name">Org Name</label><br>
+            <input type="text" id="name" name="name"><br>
+            <input type="submit" value="Create Organization">
+        </form>
     </div>
 </body>
 </html>

@@ -35,7 +35,7 @@ div#content-container{
     grid-column-start: 2;
     grid-row-start: 2; 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow-x: scroll;
 }
 
@@ -71,6 +71,7 @@ div#my-organizations{
 div#my-organizations ul{
     text-align:center;
     list-style-type: none;
+    cursor: default;
 }
 
 div.list ul{
@@ -83,10 +84,19 @@ div.list ul li{
     margin-left: 0;
     margin-bottom: 1rem;
     width: 85%;
+    
 
 }
-
-div#task-card{
+.hide {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+.pop-up{
     position: fixed;
     z-index: 1;
     top: 25%;
@@ -95,4 +105,13 @@ div#task-card{
     bottom: 25%;
     background-color: gray;
     padding:1rem;
+}
+
+div#aside-bttns ul{
+    list-style-type: none;
+}
+
+div#aside-bttns ul li{
+    display:block;
+    margin: 0 auto;
 }

@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "gabe",
+      "name": "Gabriel Demes",
+      "organizations": [
+        {
+          "id": 1,
+          "name": "flatiron",
+          "membership_code": "abc123"
+        }
+      ]
+    }
+  ],
+  "organizations": [
+    {
+      "id": 1,
+      "name": "flatiron",
+      "membership_code": "abc123",
+      "lists": [
+        {
+          "id": 1,
+          "organization_id": 1,
+          "title": "Project 3",
+          "taskcards": [
+            {
+              "id": 1,
+              "list_id": 1,
+              "date_created": "3/9/21",
+              "date_due": "3/12/21",
+              "title": "BackEnd",
+              "description": "Work on the backend of task 3 porject"
+            },
+            {
+              "id": 2,
+              "list_id": 1,
+              "date_created": "3/9/21",
+              "date_due": "3/12/21",
+              "title": "FrontEnd",
+              "description": "Work on the frontEnd of task 3 porject"
+            }
+          ]
+        }
+      ]
+    },
+    
+  ],
+  "memberships": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "organization_id": 1
+    }
+  ],
+  "lists": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "title": "Project 3"
+    }
+  ],
+  "taskcards": [
+    {
+      "id": 1,
+      "list_id": 1,
+      "date_created": "3/9/21",
+      "date_due": "3/12/21",
+      "title": "BackEnd",
+      "description": "Work on the backend of task 3 porject"
+    },
+    {
+      "id": 2,
+      "list_id": 1,
+      "date_created": "3/9/21",
+      "date_due": "3/12/21",
+      "title": "FrontEnd",
+      "description": "Work on the frontEnd of task 3 porject"
+    }
+  ]
+}
