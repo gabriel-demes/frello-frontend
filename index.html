@@ -33,6 +33,7 @@
 
         </aside>
         <div id="org-info"> 
+            <button id="new-list-btn" style="display:none">New List</button>
         </div>
         <div id="content-container">
         </div>
@@ -76,6 +77,13 @@
             <label for="dscrp">Description</label><br>
             <textarea type="text" name="dscrp"></textarea>
             <input type="submit" value="Create task">
+        </form>
+    </div>
+    <div class="hide" id="new-list-div" style="display:none" data-action="close">
+        <form id="new-list-form" class="pop-up">
+            <label for="title">List Name</label><br>
+            <input type="text" name="title"><br>
+            <input type="submit" value="Create List">
         </form>
     </div>
 </body>
