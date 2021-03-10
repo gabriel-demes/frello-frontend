@@ -105,6 +105,7 @@ div.list ul li{
     bottom: 25%;
     background-color: gray;
     padding:1rem;
+    overflow-y: scroll;
 }
 
 div#aside-bttns ul{

@@ -44,13 +44,21 @@
         }
       ]
     },
-    
+    {
+      "name": "testing",
+      "id": 2
+    }
   ],
   "memberships": [
     {
       "id": 1,
       "user_id": 1,
       "organization_id": 1
+    },
+    {
+      "organization_id": 2,
+      "user_id": 1,
+      "id": 2
     }
   ],
   "lists": [
@@ -65,9 +73,9 @@
       "id": 1,
       "list_id": 1,
       "date_created": "3/9/21",
-      "date_due": "3/12/21",
-      "title": "BackEnd",
-      "description": "Work on the backend of task 3 porject"
+      "date_due": "3/9/21",
+      "title": "Testing",
+      "description": "3/12/21"
     },
     {
       "id": 2,
