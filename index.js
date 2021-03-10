@@ -13,8 +13,31 @@ const newListDiv = document.querySelector('div#new-list-div')
 const newListBtn = document.querySelector('button#new-list-btn')
 const hideListDiv = document.querySelector('#new-list-div')
 const hideNewTaskDiv = document.querySelector('#new-task-div')
+const loginDiv = document.querySelector('div#login-div')
+const loginForm = document.querySelector(`form#login-form`)
 
 
+const startPage = () =>{
+    loginDiv.style = "display:block"
+    loginForm.addEventListener('submit', function(event){
+        event.preventDefault()
+        const username = event.target[0].value
+        const password = event.target[1].value
+        fetch(`${url}/users`)
+        .then(resp => resp.json())
+        .then(users => {
+            const current = users.find(user => (user.username === username && user.password === password))
+            if(!!current){
+                loadUser(current.id)
+                loginDiv.style="display:none"
+                event.target.reset()
+            }else{
+                alert('Incorrect username/password')
+                event.target.reset()
+            }
+        }) 
+    })
+}
 const loadUser = id =>{
     fetch(`${url}/users/${id}`)
         .then(resp => resp.json())
@@ -313,6 +336,7 @@ const createTask = (task) => {
         addTaskCard(newTask, document.querySelector(`div[data-id="${newTask.list_id}"]`))
         hideTaskDiv.style = "display:block"
         newTaskDiv.style = "display:none"
+        hideTask()
     })
 }
 
@@ -374,4 +398,4 @@ const handleMovement = card =>{
     }
 }
 
-loadUser(1)
+startPage()
