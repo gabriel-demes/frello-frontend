@@ -14,7 +14,6 @@
             <div id="user-info">
                 <p id="name">Name: Example</p>
                 <p id= "username">Username: Example</p>
-                <p>button will go here</p>
             </div>
             <div id="personal-tasks">
                 <h3>MY Personal Tasks</h3>
@@ -95,5 +94,33 @@
             <input type="submit" value="Login">
         </form>
     </div>
+
+    <div class= "hide" id="signup-div" style="display:none" data-action="close">
+        <form id="signup-form" class="pop-up">
+            <label for="name">Name</label><br>
+            <input type="text" name="name"><br>
+            <label for="username">Username</label><br>
+            <input type="text" name="username"><br>
+            <label for="password">Password</label><br>
+            <input type="text" name="Password"><br>
+            <input type="submit" value="SignUp">
+        </form>
+    </div>
+    <div class= "hide" id="hide-start-page" style="display:none" data-action="close">
+        <div id="start-page" class="pop-up">
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </div>
+    </div>
+    <div class="hide" id="hide-join-form" data-action="close" style="display:none">
+        <form class="pop-up" id="join-org-form">
+            <label for="memcode">Please Enter Membership Code</label><br>
+            <input type="text" name="memcode"><br>
+            <input type="submit" value="Join Organization">
+        </form>
+    </div>
+    
+
+
 </body>
 </html>

@@ -15,9 +15,58 @@ const hideListDiv = document.querySelector('#new-list-div')
 const hideNewTaskDiv = document.querySelector('#new-task-div')
 const loginDiv = document.querySelector('div#login-div')
 const loginForm = document.querySelector(`form#login-form`)
+const signupDiv = document.querySelector('div#signup-div')
+const signupForm = document.querySelector(`form#signup-form`)
+const hideStart = document.querySelector('div#hide-start-page')
+const startPageDiv = document.querySelector('div#start-page')
+const hideJoinOrgDiv = document.querySelector('div#hide-join-form')
+const joinOrgForm = document.querySelector('form#join-org-form')
 
+const startPage = () => {
+    hideStart.style="display:block"
+    startPageDiv.addEventListener('click', function(evet){
+        switch (event.target.id){
+            case "login":
+                signinPage()
+                hideStart.style="display:none"
+                break;
+            case "signup":
+                signupPage()
+                hideStart.style="display:none"
+                break
+        }
+    })
+}
+const signupPage = () =>{
+    signupDiv.style = "display:block"
+     signupForm.addEventListener('submit', function(event){
+        event.preventDefault()
+        const name = event.target[0].value
+        const username = event.target[1].value
+        const password = event.target[2].value
+        const user = {name, username, password}
+        fetch(`${url}/users`, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(user)
+        })
+        .then(resp => resp.json())
+        .then(newUser => {
+            if(!!newUser.id){
+                loadUser(newUser.id)
+                signupDiv.style = "display:none"
+            }else{
+                alert('username already taken. Please try again.')
+                event.target.reset()
+            }
+        })
+        .catch((error) => {
+            alert('username already taken. Please try again.')
+        })   
+    })
+}
 
-const startPage = () =>{
+const signinPage = () =>{
     loginDiv.style = "display:block"
     loginForm.addEventListener('submit', function(event){
         event.preventDefault()
@@ -41,18 +90,17 @@ const startPage = () =>{
 const loadUser = id =>{
     fetch(`${url}/users/${id}`)
         .then(resp => resp.json())
-        .then(user => {populatePage(user)
-        newOrgForm.dataset.id = user.id})
+        .then(user => {populateAside(user)
+        newOrgForm.dataset.id = user.id
+        console.log(newOrgForm.dataset.id)})
 
+    joinNewOrg()
     loadOrgForm()
     newList()
     contentContainerEvents()
 
 }
 
-const populatePage = userObj =>{
-    populateAside(userObj)
-}
 
 const populateAside = userObj => {
     document.querySelector(`p#name`).textContent = userObj.name
@@ -118,7 +166,7 @@ const contentContainerEvents = () => {
         switch (event.target.id){
             case "create-task-btn":
                 newTaskDiv.style="display:block"
-                hideNewTask()
+                hideNewTask() 
                 newTaskForm.dataset.id = event.target.dataset.id
                 break
             case "delete-list-btn":
@@ -234,10 +282,25 @@ const loadOrgForm = () => {
     })
 }
 
+const joinNewOrg = () => {
+    const bttn = document.querySelector(`#join-org`)
+    submitJoinOrgForm()
+    bttn.addEventListener('click', function(event){
+        hideJoinOrgDiv.style ="display:block"
+        hideJoinOrgForm()})
+}
+
 const hideNewOrgForm = () => {
     hideNewOrgDiv.addEventListener('click', function(event){
         if(event.target.dataset.action === "close"){
             hideNewOrgDiv.style="display:none"
+        }
+    })
+}
+const hideJoinOrgForm = () => {
+    hideJoinOrgDiv.addEventListener('click', function(event){
+        if(event.target.dataset.action === "close"){
+            hideJoinOrgDiv.style="display:none"
         }
     })
 }
@@ -252,6 +315,31 @@ const submitNewOrgForm = () => {
     })
 }
 
+const submitJoinOrgForm = () => {
+    joinOrgForm.addEventListener('submit', function(event){
+        event.preventDefault()
+        const memembership_code = event.target[0].value
+        findOrg(memembership_code)
+    })
+}
+
+const findOrg = code =>{
+    fetch(`${url}/organizations`)
+    .then(resp => resp.json())
+    .then(orgs => {
+        const found = orgs.find(org =>(org.memembership_code === code))
+        if(!!found && !document.querySelector(`aside li[data-id="${found.id}"]` )){
+            joinOrg(found)
+        }
+        else if(!!found && !!document.querySelector(`aside li[data-id="${found.id}"]`)){
+            alert("You are Aleady a member of this org")
+        } else {
+            alert("Membership Code Does not exist")
+        }
+    })
+
+}
+
 const createOrg = newOrg => {
     fetch(`${url}/organizations`,{
         method: "POST",
@@ -264,7 +352,7 @@ const createOrg = newOrg => {
 
 const joinOrg = org =>{
     const organization_id = org.id
-    const user_id = 1
+    const user_id = newOrgForm.dataset.id
     const membership = {organization_id, user_id}
     fetch(`${url}/memeberships`,{
         method: "POST",
@@ -397,5 +485,6 @@ const handleMovement = card =>{
         .then(task => {card.dataset.list = task.user_list})
     }
 }
+
 
 startPage()
