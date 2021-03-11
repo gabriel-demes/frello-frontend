@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css"> 
     <script src="index.js" defer></script>
+    <link href='fullcalendar-5.5.1/lib/main.css' rel='stylesheet' />
+    <script src='fullcalendar-5.5.1/lib/main.js' defer></script>
 </head>
 <body>
     <main>
@@ -27,6 +29,7 @@
                 <ul>
                     <li><button id="join-org">Join Organization</button></li>
                     <li><button id="new-org">Create Organization</button></li>
+                    <li><button id="my-cal">See Calendar</button></li>
                 </ul>
             </div>
 
@@ -126,6 +129,11 @@
         <div id="members" class="pop-up">
             <ul>
             </ul>
+        </div>
+    </div>
+    <div class= "hide" id="hide-cal" style="display:none" data-action="close">
+        <div id="cal" class="pop-up">
+            <div id='calendar'></div>
         </div>
     </div>
     

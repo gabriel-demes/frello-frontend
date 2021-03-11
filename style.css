@@ -133,6 +133,12 @@ div.list ul li{
     padding:1rem;
     overflow-y: scroll;
 }
+#cal{
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
 .pop-up::-webkit-scrollbar {
     display: none;
   }

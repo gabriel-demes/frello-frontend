@@ -24,10 +24,11 @@ const joinOrgForm = document.querySelector('form#join-org-form')
 const members = document.querySelector('div#members')
 const hideMembersDiv = document.querySelector('div#hide-members')
 const membersBtn = document.querySelector('button#org-members')
+const hideCalDiv = document.querySelector('#hide-cal')
 
 const startPage = () => {
     hideStart.style="display:block"
-    startPageDiv.addEventListener('click', function(evet){
+    startPageDiv.addEventListener('click', function(event){
         switch (event.target.id){
             case "login":
                 signinPage()
@@ -95,7 +96,8 @@ const loadUser = id =>{
         .then(resp => resp.json())
         .then(user => {populateAside(user)
         newOrgForm.dataset.id = user.id
-        console.log(newOrgForm.dataset.id)})
+        makeCal(getEvents(user))
+    })
 
     showMembers()
     joinNewOrg()
@@ -104,7 +106,8 @@ const loadUser = id =>{
     contentContainerEvents()
     editTask()
     deleteTask()
-
+    seeCal()
+    
 }
 
 
@@ -480,7 +483,6 @@ const createList = (list) => {
         newListDiv.style = "display:none"
         Object.assign(y, newList)
     })
-    return console.log(y)
 }
 
 const handleMovement = card =>{
@@ -526,5 +528,49 @@ const hideMembers = () =>{
             hideMembersDiv.style="display:none"
         }
     })
+}
+
+const seeCal = () => {
+    const calBtn = document.querySelector('#my-cal')
+    calBtn.addEventListener('click', function(event){
+        hideCalDiv.style ="display:block"
+    })
+    hideCal()
+}
+
+const hideCal = () => {
+    hideCalDiv.addEventListener('click', function(event){
+        if(event.target.dataset.action === "close"){
+            hideCalDiv.style="display:none"
+        }
+    })
+}
+const makeCal = eventList => {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      aspectRatio: 1.5,
+      contentHeight: 'auto',
+      events: eventList
+    });
+    calendar.render();
+}
+
+const getEvents = user =>{
+    let events = []
+    if(!!user.organizations){
+        user.organizations.forEach(org =>{
+            if(!!org.lists){
+                org.lists.forEach(list =>{
+                    if(!!list.taskcards){
+                        list.taskcards.forEach(task =>{
+                            events.push({title: task.title, start: task.deadline})
+                        })
+                    }
+                })
+            }
+        })
+    }
+   return events
 }
 startPage()
