@@ -21,6 +21,9 @@ const hideStart = document.querySelector('div#hide-start-page')
 const startPageDiv = document.querySelector('div#start-page')
 const hideJoinOrgDiv = document.querySelector('div#hide-join-form')
 const joinOrgForm = document.querySelector('form#join-org-form')
+const members = document.querySelector('div#members')
+const hideMembersDiv = document.querySelector('div#hide-members')
+const membersBtn = document.querySelector('button#org-members')
 
 const startPage = () => {
     hideStart.style="display:block"
@@ -94,6 +97,7 @@ const loadUser = id =>{
         newOrgForm.dataset.id = user.id
         console.log(newOrgForm.dataset.id)})
 
+    showMembers()
     joinNewOrg()
     loadOrgForm()
     newList()
@@ -103,8 +107,8 @@ const loadUser = id =>{
 
 
 const populateAside = userObj => {
-    document.querySelector(`p#name`).textContent = userObj.name
-    document.querySelector(`p#username`).textContent = userObj.username
+    document.querySelector(`p#name`).textContent = `Name: ${userObj.name}`
+    document.querySelector(`p#username`).textContent = `Username: ${userObj.username}`
     userObj.organizations.forEach(org => {addOrgToAside(org)});
 }
 
@@ -126,6 +130,10 @@ const clickOrg = li => {
 }
 
 const displayOrg = org => {
+    document.querySelector('div#org-name').textContent = `Name: ${org.name}`
+    document.querySelector('div#org-code').textContent = `Code: ${org.memembership_code}`
+    membersBtn.dataset.id = org.id
+    membersBtn.style ="display:block"
     newListForm.dataset.id = org.id
     newListBtn.style = "display:block"
     newListBtn.dataset.id = org.id
@@ -237,10 +245,12 @@ const getTaskInfo = id => {
 }
 
 const displayTaskInfo = task =>{
+    
     const taskInfo = taskDiv.querySelector('div#task-info')
     taskInfo.dataset.id = task.id
+    const time = new Date(task.created_at).toDateString()
     taskInfo.innerHTML = `<h2>${task.title}</h2>
-            <h3 class="created">Date Created: ${task["date_created"]}</h3>
+            <h3 class="created">Date Created: ${time}</h3>
             <h3 class = "due">Date Due: ${task["deadline"]}</h3>
             <p>Description: ${task.description}</p>
             <button id="edit-task-btn">Update Task</button>
@@ -486,5 +496,34 @@ const handleMovement = card =>{
     }
 }
 
+const showMembers = () => {
+    membersBtn.addEventListener('click', function(event){
+        fetch(`${url}/users`)
+        .then(resp => resp.json())
+        .then(users => {
+            members.querySelector('ul').querySelectorAll('*').forEach(n => n.remove());
+            users.forEach(user =>{
+                user.organizations.forEach(org => {
+                    if (org.id === parseInt(event.target.dataset.id)){
+                        const li = document.createElement('li')
+                        li.textContent = user.name
+                        members.querySelector('ul').append(li)
+                    }
 
+                });
+            })
+            hideMembersDiv.style = "display:block"
+        })
+        
+    })
+    hideMembers()
+}
+
+const hideMembers = () =>{
+    hideMembersDiv.addEventListener('click', function(event){
+        if(event.target.dataset.action === "close"){
+            hideMembersDiv.style="display:none"
+        }
+    })
+}
 startPage()

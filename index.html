@@ -32,7 +32,14 @@
 
         </aside>
         <div id="org-info"> 
+            <div id=org-name>
+            </div>
+            <div id=org-code>
+            </div>
+            <div>
             <button id="new-list-btn" style="display:none">New List</button>
+            <button id="org-members" style="display:none">See All Members</button>
+            </div>
         </div>
         <div id="content-container">
         </div>
@@ -118,6 +125,12 @@
             <input type="text" name="memcode"><br>
             <input type="submit" value="Join Organization">
         </form>
+    </div>
+    <div class= "hide" id="hide-members" style="display:none" data-action="close">
+        <div id="members" class="pop-up">
+            <ul>
+            </ul>
+        </div>
     </div>
     
 
