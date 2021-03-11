@@ -1,4 +1,9 @@
 
+body{
+    background-image:url(assets/IMG_1909.JPG);
+    background-size:cover;
+}
+
 main {
     margin:1;
     display: grid;
@@ -10,12 +15,13 @@ main {
 aside{
     border-style: solid;
     border-width:1px;
-    border-color: black;
+    border-color: #A9A9A9;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1; 
     grid-row-end: 4;
     overflow-y:scroll;
+    font-size: large;
 }
 aside::-webkit-scrollbar {
     display: none;
@@ -29,21 +35,23 @@ div#org-info{
     display:flex;
     border-style: solid;
     border-width:1px;
-    border-color: black;
+    border-color: #A9A9A9;
     grid-column-start: 2;
     grid-row-start: 1; 
     justify-content: space-evenly;
     align-items: center;
+    font-size: 25px;
 }
 div#content-container{
-    border-style: solid;
-    border-width:1px;
-    border-color: black;
+    border: 1px solid #A9A9A9;
     grid-column-start: 2;
     grid-row-start: 2; 
     display: flex;
     justify-content: flex-start;
     overflow-x: scroll;
+}
+div#content-container::-webkit-scrollbar{
+    background-color: #c8c7c7;
 }
 
 div.list{
@@ -57,18 +65,21 @@ div.list{
     margin: auto;
     width: 85%;
     height: 90%;
-    border: 1px solid black;
+    border: 1px solid #A9A9A9;
     margin-top: 1rem;
     overflow-y: auto;
     border-radius: 25px;
+    background-color:  #CAEBF2 ;
 }
+
 
 div.list div::-webkit-scrollbar {
     display: none;
   }
 div#user-info{
-    border: 1px solid black;
+    border: 1px solid #A9A9A9;
     margin: 2rem;
+    background-color: #CAEBF2;
 }
 
 div#personal-tasks{
@@ -92,9 +103,10 @@ div.list ul{
 }
 
 div.list ul li{
+    background-color: #E9E9E9;
     text-align: center;
     border-radius: 25px;
-    border: 1px solid black;
+    border: 1px solid #A9A9A9;
     margin-left: 0;
     margin-bottom: 1rem;
     width: 85%;
@@ -117,7 +129,7 @@ div.list ul li{
     left: 25%;
     right: 25%;
     bottom: 25%;
-    background-color: gray;
+    background-color: #CAEBF2;;
     padding:1rem;
     overflow-y: scroll;
 }
@@ -147,3 +159,4 @@ button{
     margin-left: 40%;
     text-align: center;
 }
+
