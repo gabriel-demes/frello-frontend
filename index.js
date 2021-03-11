@@ -159,13 +159,15 @@ const showList = list =>{
         createTaskBtn.dataset.id = list.id
         createTaskBtn.id = "create-task-btn"
         createTaskBtn.textContent = "Add Task"
+        const buttonDiv = document.createElement('div')
         const ul = div.querySelector('ul').parentElement
-        ul.append(createTaskBtn)
+        buttonDiv.append(createTaskBtn)
         const deleteListBtn = document.createElement('button')
         deleteListBtn.dataset.id = list.id
         deleteListBtn.id = "delete-list-btn"
         deleteListBtn.textContent = "Delete List"
-        ul.append(deleteListBtn)
+        buttonDiv.append(deleteListBtn)
+        ul.append(buttonDiv)
         // const check =document.createElement('input')
         // check.type ="checkbox"
         // ul.append(check)

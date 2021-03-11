@@ -50,9 +50,10 @@ div.list{
     flex-basis: 20rem;
     flex-shrink: 0;
     text-align: center;
+    justify-content: center;
 }
 
-div.list div{
+.listul{
     margin: auto;
     width: 85%;
     height: 90%;
@@ -87,7 +88,7 @@ div#my-organizations ul{
 
 div.list ul{
     list-style-type: none;
-    text-align: start;
+    text-align: center;
 }
 
 div.list ul li{
@@ -132,4 +133,16 @@ div#aside-bttns ul{
 div#aside-bttns ul li{
     display:block;
     margin: 0 auto;
+}
+
+button{
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+    display: block;
+    text-align: center;
+}
+
+.listul div{
+    margin-left: 40%;
+    text-align: center;
 }
