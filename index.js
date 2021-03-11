@@ -102,6 +102,8 @@ const loadUser = id =>{
     loadOrgForm()
     newList()
     contentContainerEvents()
+    editTask()
+    deleteTask()
 
 }
 
@@ -221,15 +223,14 @@ const contentContainerEvents = () => {
 
 const addTaskCard = (task, div) => {
     const card = document.createElement('li')
-            card.classList.add('taskcard')
-            card.draggable ="true"
-            card.dataset.id = task.id
-            card.dataset.list = div.dataset.id
-            card.innerHTML = `<h4>${task.title}</h4>`
-            const ul = div.querySelector('ul')
-            ul.append(card)
-            clickTask(card)
-            
+    card.classList.add('taskcard')
+    card.draggable ="true"
+    card.dataset.id = task.id
+    card.dataset.list = div.dataset.id
+    card.innerHTML = `<h4>${task.title}</h4>`
+    const ul = div.querySelector('ul')
+    ul.append(card)
+    clickTask(card)
 }
 const clickTask = card => {
     card.addEventListener(`click`, function(event){
@@ -244,22 +245,17 @@ const getTaskInfo = id => {
         .then(resp => resp.json())
         .then(task => {
             displayTaskInfo(task)   
-            editTask()
-            deleteTask()
         })
 }
 
-const displayTaskInfo = task =>{
-    
+const displayTaskInfo = task =>{   
     const taskInfo = taskDiv.querySelector('div#task-info')
     taskInfo.dataset.id = task.id
     const time = new Date(task.created_at).toDateString()
     taskInfo.innerHTML = `<h2>${task.title}</h2>
             <h3 class="created">Date Created: ${time}</h3>
             <h3 class = "due">Date Due: ${new Date(task["deadline"]).toDateString()}</h3>
-            <p>Description: ${task.description}</p>
-            <button id="edit-task-btn">Update Task</button>
-            <button id="delete-task-btn">Delete Task</button>`
+            <p>Description: ${task.description}</p>`
     editTaskForm.dataset.id = task.id
 }
 
@@ -322,7 +318,7 @@ const hideJoinOrgForm = () => {
 
 const submitNewOrgForm = () => {
     newOrgForm.addEventListener('submit', function(e){
-        event.preventDefault()
+        e.preventDefault()
         const name = event.target[0].value
         const user_id = event.target.dataset.id
         const newOrg = {name, user_id}
@@ -380,10 +376,10 @@ const joinOrg = org =>{
 }
 
 const editTask = () =>{
+    submitEditTask()
     const btn = document.querySelector('button#edit-task-btn')
     btn.addEventListener('click', function(event){
         editTaskDiv.style="display:block"
-        submitEditTask()
     })
 }
 

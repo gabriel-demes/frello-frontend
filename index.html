@@ -47,19 +47,15 @@
     <div class="hide" id="hide-task" data-action="close" style="display:none">
         <div id="task-card" class="pop-up" >
             <div id="task-info">
-                <h2>card title</h2>
-                <h3 class="created">Date Created</h3>
-                <h3 class = "due">Date Due</h3>
-                <p>Description</p>
-                <button id="edit-task-btn">Update Task</button>
-                <button id="delete-task-btn">Delete Task</button>
             </div>
+            <button id="edit-task-btn">Update Task</button>
+            <button id="delete-task-btn">Delete Task</button>
             <div id="edit-task-div" style="display:none">
                 <form id="edit-task-form">
                     <label for="title">Title</label><br>
                     <input type="text" name="title"><br>
                     <label for="due">Date Due</label><br>
-                    <input type="text" name="due"><br>
+                    <input type="date" name="due"><br>
                     <label for="dscrp">Description</label><br>
                     <textarea type="text" name="dscrp"></textarea>
                     <input type="submit" value="Update task">
