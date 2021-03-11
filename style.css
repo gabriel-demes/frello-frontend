@@ -1,13 +1,13 @@
-
-body{
+body {
     background-image:url(assets/IMG_1909.JPG);
-    background-size:cover;
+    background-size: cover;
+    color: #b071dc;
+   
 }
 
 main {
     margin:1;
     display: grid;
-    /*grid-template-areas:"nav content";*/
     grid-template-columns: 300px 1fr;
     grid-template-rows: 125px 1fr;
     height: 100vh;
@@ -20,8 +20,9 @@ aside{
     grid-column-end: 2;
     grid-row-start: 1; 
     grid-row-end: 4;
-    overflow-y:scroll;
+    overflow-y:scroll; 
     font-size: large;
+    font-weight: 900;
 }
 aside::-webkit-scrollbar {
     display: none;
@@ -41,6 +42,8 @@ div#org-info{
     justify-content: space-evenly;
     align-items: center;
     font-size: 25px;
+    color: #b071dc;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 div#content-container{
     border: 1px solid #A9A9A9;
@@ -59,6 +62,7 @@ div.list{
     flex-shrink: 0;
     text-align: center;
     justify-content: center;
+    color: #b071dc;
 }
 
 .listul{
@@ -80,15 +84,25 @@ div#user-info{
     border: 1px solid #A9A9A9;
     margin: 2rem;
     background-color: #CAEBF2;
+    color: #b071dc;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 div#personal-tasks{
     text-align: center;
+    color: #b071dc;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 div#my-organizations{
     text-align: center;
     margin: 2rem;
+    color: #b071dc;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    overflow-y: scroll;
+    max-height: 15rem;
 }
 
 div#my-organizations ul{
@@ -100,6 +114,7 @@ div#my-organizations ul{
 div.list ul{
     list-style-type: none;
     text-align: center;
+    color: #9e56d1;
 }
 
 div.list ul li{
@@ -110,12 +125,13 @@ div.list ul li{
     margin-left: 0;
     margin-bottom: 1rem;
     width: 85%;
-    
-
+    background-color: honeydew;
+    color: #9e56d1;
+     
 }
 .hide {
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     top: 0;
     left: 0;
     right: 0;
@@ -153,6 +169,11 @@ button{
     display: block;
     text-align: center;
     font-size: 16px;
+    border-radius: 8px;
+    background-color: antiquewhite;
+    color:#9e56d1;
+    font-weight: 900;
+    padding: 7px 7px;
 }
 
 .listul div{
