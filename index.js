@@ -251,7 +251,7 @@ const displayTaskInfo = task =>{
     const time = new Date(task.created_at).toDateString()
     taskInfo.innerHTML = `<h2>${task.title}</h2>
             <h3 class="created">Date Created: ${time}</h3>
-            <h3 class = "due">Date Due: ${task["deadline"]}</h3>
+            <h3 class = "due">Date Due: ${Date(task["deadline"]).toDateString()}</h3>
             <p>Description: ${task.description}</p>
             <button id="edit-task-btn">Update Task</button>
             <button id="delete-task-btn">Delete Task</button>`
