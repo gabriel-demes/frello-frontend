@@ -15,7 +15,11 @@ aside{
     grid-column-end: 2;
     grid-row-start: 1; 
     grid-row-end: 4;
+    overflow-y:scroll;
 }
+aside::-webkit-scrollbar {
+    display: none;
+  }
 
 div#user-info{
     padding: 1rem;
@@ -54,9 +58,13 @@ div.list div{
     height: 90%;
     border: 1px solid black;
     margin-top: 1rem;
-    overflow-y: scroll ;
+    overflow-y: auto;
+    border-radius: 25px;
 }
 
+div.list div::-webkit-scrollbar {
+    display: none;
+  }
 div#user-info{
     border: 1px solid black;
     margin: 2rem;
@@ -83,6 +91,8 @@ div.list ul{
 }
 
 div.list ul li{
+    text-align: center;
+    border-radius: 25px;
     border: 1px solid black;
     margin-left: 0;
     margin-bottom: 1rem;
@@ -110,6 +120,10 @@ div.list ul li{
     padding:1rem;
     overflow-y: scroll;
 }
+.pop-up::-webkit-scrollbar {
+    display: none;
+  }
+
 
 div#aside-bttns ul{
     list-style-type: none;
