@@ -1,1 +1,144 @@
-<h1>testing</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="index.js" defer></script>
+    <link href='fullcalendar-5.5.1/lib/main.css' rel='stylesheet' />
+    <script src='fullcalendar-5.5.1/lib/main.js' defer></script>
+</head>
+<body>
+    <div id='testing'>
+    <main>
+        <aside>
+            <div id="user-info">
+                <p id="name">Name: Example</p>
+                <p id= "username">Username: Example</p>
+            </div>
+            <div id="personal-tasks">
+                <h3>MY Personal Tasks</h3>
+            </div>
+            <div id="my-organizations">
+                <h3>My Organizations</h3>
+                <ul>
+                </ul>
+            </div>
+            <div id="aside-bttns">
+                <ul>
+                    <li><button id="join-org">Join Organization</button></li>
+                    <li><button id="new-org">Create Organization</button></li>
+                    <li><button id="my-cal">See Calendar</button></li>
+                </ul>
+            </div>
+
+        </aside>
+        <div id="org-info"> 
+            <div id=org-name>
+            </div>
+            <div id=org-code>
+            </div>
+            <div>
+            <button id="new-list-btn" style="display:none">New List</button>
+            <button id="org-members" style="display:none">See All Members</button>
+            </div>
+        </div>
+        <div id="content-container">
+        </div>
+    </main>
+    <div class="hide" id="hide-task" data-action="close" style="display:none">
+        <div id="task-card" class="pop-up" >
+            <div id="task-info">
+            </div>
+            <button id="edit-task-btn">Update Task</button>
+            <button id="delete-task-btn">Delete Task</button>
+            <div id="edit-task-div" style="display:none">
+                <form id="edit-task-form">
+                    <label for="title">Title</label><br>
+                    <input type="text" name="title"><br>
+                    <label for="due">Date Due</label><br>
+                    <input type="date" name="due"><br>
+                    <label for="dscrp">Description</label><br>
+                    <textarea type="text" name="dscrp"></textarea>
+                    <input type="submit" value="Update task">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="hide" id="hide-new-form" data-action="close" style="display:none">
+        <form class="pop-up" id="new-org-form">
+            <label for="name">Org Name</label><br>
+            <input type="text" name="name"><br>
+            <input type="submit" value="Create Organization">
+        </form>
+    </div>
+    <div class="hide" id="new-task-div" style="display:none" data-action="close">
+        <form id="new-task-form" class="pop-up">
+            <label for="title">Title</label><br>
+            <input type="text" name="title"><br>
+            <label for="due">Date Due</label><br>
+            <input type="date" name="due"><br>
+            <label for="dscrp">Description</label><br>
+            <textarea type="text" name="dscrp"></textarea>
+            <input type="submit" value="Create task">
+        </form>
+    </div>
+    <div class="hide" id="new-list-div" style="display:none" data-action="close">
+        <form id="new-list-form" class="pop-up">
+            <label for="title">List Name</label><br>
+            <input type="text" name="title"><br>
+            <input type="submit" value="Create List">
+        </form>
+    </div>
+    <div class= "hide" id="login-div" style="display:none" data-action="close">
+        <form id="login-form" class="pop-up">
+            <label for="username">Username</label><br>
+            <input type="text" name="username"><br>
+            <label for="password">Password</label><br>
+            <input type="text" name="Password"><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div class= "hide" id="signup-div" style="display:none" data-action="close">
+        <form id="signup-form" class="pop-up">
+            <label for="name">Name</label><br>
+            <input type="text" name="name"><br>
+            <label for="username">Username</label><br>
+            <input type="text" name="username"><br>
+            <label for="password">Password</label><br>
+            <input type="text" name="Password"><br>
+            <input type="submit" value="SignUp">
+        </form>
+    </div>
+    <div class= "hide" id="hide-start-page" style="display:none" data-action="close">
+        <div id="start-page" class="pop-up">
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </div>
+    </div>
+    <div class="hide" id="hide-join-form" data-action="close" style="display:none">
+        <form class="pop-up" id="join-org-form">
+            <label for="memcode">Please Enter Membership Code</label><br>
+            <input type="text" name="memcode"><br>
+            <input type="submit" value="Join Organization">
+        </form>
+    </div>
+    <div class= "hide" id="hide-members" style="display:none" data-action="close">
+        <div id="members" class="pop-up">
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <div class= "hide" id="hide-cal" style="display:none" data-action="close">
+        <div id="cal" class="pop-up">
+            <div id='calendar'></div>
+        </div>
+    </div>
+    
+
+</div>
+</body>
+</html>
