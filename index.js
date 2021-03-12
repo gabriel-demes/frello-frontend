@@ -200,7 +200,7 @@ const contentContainerEvents = () => {
         const description = event.target[2].value
         const task = {title, deadline, description, list_id: newTaskForm.dataset.id}
         createTask(task)
-        
+        event.target.reset()
         })
     
     contentContainer.addEventListener('dragstart', function(event){
@@ -395,6 +395,7 @@ const submitEditTask = () =>{
         const description = event.target[2].value
         const task = {title, deadline, description}
         updateTask(task)
+        event.target.reset()
     })
 }
 
@@ -468,6 +469,7 @@ const submitNewList = () =>{
         const organization_id = event.target.dataset.id
         const list = {title, organization_id}
         createList(list)
+        event.target.reset()
     })
 }
 
