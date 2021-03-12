@@ -239,6 +239,7 @@ const clickTask = card => {
     card.addEventListener(`click`, function(event){
         const mytask = getTaskInfo(parseInt(event.currentTarget.dataset.id))
         hideTaskDiv.style="display:block"
+        document.querySelector('#delete-task-btn').dataset.id= card.dataset.id
         hideTask()
     })
 }
@@ -413,12 +414,12 @@ const updateTask = task => {
 const deleteTask = () =>{
     const bttn = document.querySelector('button#delete-task-btn')
     bttn.addEventListener('click', function(event){
-        fetch(`${url}/taskcards/${event.target.parentElement.dataset.id}`, {
+        fetch(`${url}/taskcards/${event.target.dataset.id}`, {
             method: "DELETE",
         })
         .then(resp => resp.json())
         .then(task => {
-            document.querySelector(`div.list li[data-id="${event.target.parentElement.dataset.id}"]`).remove()
+            document.querySelector(`div.list li[data-id="${event.target.dataset.id}"]`).remove()
             hideTaskDiv.style="display:none"
 
         })

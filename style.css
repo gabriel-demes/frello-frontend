@@ -1,11 +1,12 @@
 body {
     background-image:url(assets/IMG_1909.JPG);
     background-size: cover;
-    color: #b071dc;
+    
    
 }
 
 main {
+    color: #b071dc;
     margin:1;
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -139,6 +140,7 @@ div.list ul li{
     background-color: rgba(0, 0, 0, 0.75);
   }
 .pop-up{
+    color: #b071dc;
     position: fixed;
     z-index: 1;
     top: 25%;
@@ -185,5 +187,9 @@ button{
 .listul div{
     margin-left: 40%;
     text-align: center;
+}
+
+#cal{
+    color: black;
 }
 
